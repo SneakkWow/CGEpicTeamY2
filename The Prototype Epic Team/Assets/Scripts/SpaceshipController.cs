@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class SpaceshipController : MonoBehaviour
 {
+    public float horizontalInput;
+
+    public float verticalInput;
+
     public float moveSpeed = 5.0f;
 
-    private Rigidbody rb;
+    public float turnSpeed;
 
-    private Vector3 movement;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
 
-        movement.y = Input.GetAxis("Vertical");
+        verticalInput = Input.GetAxis("Vertical");
+
+        if(verticalInput > 0)
+        {
+            transform.Translate(Vector3.forward * verticalInput * moveSpeed * Time.deltaTime);
+        }
+
+
+        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
     }
 }
