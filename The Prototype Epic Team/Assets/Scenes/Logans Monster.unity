@@ -849,6 +849,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlashlightLight: {fileID: 2115659966}
+--- !u!4 &1540006302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4777606630871252, guid: d86ca2f4159e6a942abd8dfc52b38395, type: 3}
+  m_PrefabInstance: {fileID: 1734370430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1734370430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1340,12 +1345,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115659966}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00012207031, y: 0.000061035156, z: 0}
+  m_LocalRotation: {x: 0.058089424, y: -0.7229442, z: -0.68814015, w: -0.020987729}
+  m_LocalPosition: {x: 0.3270685, y: -0.4253886, z: 0.3229212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 614545863}
-  m_RootOrder: 2
+  m_Father: {fileID: 1540006302}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &2115659968
 Light:
