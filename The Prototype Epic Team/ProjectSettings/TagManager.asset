@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Monster
   - EscapePod
+  - Enemy
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
