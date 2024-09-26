@@ -254,7 +254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501011791
 GameObject:
@@ -433,7 +433,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3265147387569588370, guid: 4626a34a7b7998a41af989fd8c4aad72, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3265147387569588370, guid: 4626a34a7b7998a41af989fd8c4aad72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,13 +574,24 @@ RectTransform:
   m_Children:
   - {fileID: 501011792}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1383265269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3265147387569588372, guid: 4626a34a7b7998a41af989fd8c4aad72, type: 3}
+  m_PrefabInstance: {fileID: 850699528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1773884868
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,11 +621,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5b7ee353452fe49af855b493e09adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleArrows: 11010000120100001401000013010000
   qtePromptImage: {fileID: 501011793}
   upArrowSprite: {fileID: 21300000, guid: b1b1db711adabb24ba68df82b704f34d, type: 3}
   downArrowSprite: {fileID: 21300000, guid: 88ac34ef209766f4999c9ccde92a8187, type: 3}
   leftArrowSprite: {fileID: 21300000, guid: a1b23450a8f38734381749cacbf45edd, type: 3}
   rightArrowSprite: {fileID: 21300000, guid: b6d0875f24e47434d9eb4e4646a6b861, type: 3}
+  playerMovement: {fileID: 1383265269}
+  triggerCollider: {fileID: 150370042}
+  correctColor: {r: 0, g: 1, b: 0, a: 1}
+  incorrectColor: {r: 1, g: 0, b: 0, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1773884870
 Transform:
   m_ObjectHideFlags: 0
@@ -627,7 +644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964318192
 GameObject:
