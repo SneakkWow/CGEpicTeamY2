@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 
 public class QTEManager : MonoBehaviour
@@ -25,10 +26,13 @@ public class QTEManager : MonoBehaviour
 
     public FirstPersonController playerMovement;
     public QTETrigger triggerCollider;
+    public DoorMovement doorMovement;
 
     public Color correctColor = Color.green; // Color for correct input
     public Color incorrectColor = Color.red;  // Color for incorrect input
     public Color defaultColor = Color.white;  // Default arrow color
+
+    public float colorFlashDuration = 0.5f;
 
     private void Start()
     {
@@ -62,29 +66,49 @@ public class QTEManager : MonoBehaviour
 
     private void HandleQTE()
     {
-        if (Input.GetKeyDown(arrowSequence[currentInputIndex]))
+        if (Input.anyKeyDown)
         {
-
-            qtePromptImage.color = correctColor;
-            currentInputIndex++;
-
-            if (currentInputIndex >= arrowSequence.Length)
+            if (Input.GetKeyDown(arrowSequence[currentInputIndex]))
             {
-                CompleteQTE();
+                // Correct input: Flash green and move to the next input after a delay
+                StartCoroutine(FlashColor(correctColor));
+
+                currentInputIndex++;
+
+                if (currentInputIndex >= arrowSequence.Length)
+                {
+                    CompleteQTE(); // QTE completed
+                }
+                else
+                {
+                    // Wait until the color flash ends before showing the next arrow
+                    StartCoroutine(WaitForNextArrow());
+                }
             }
-            else
+            else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                UpdateQTEUI();
+                // Incorrect input: Flash red
+                StartCoroutine(FlashColor(incorrectColor));
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            // Incorrect input: Change to red
-            qtePromptImage.color = incorrectColor;
         }
     }
 
-        private void CompleteQTE()
+    private IEnumerator FlashColor(Color flashColor)
+    {
+        // Flash the color for a brief moment
+        qtePromptImage.color = flashColor;
+        yield return new WaitForSeconds(colorFlashDuration);
+        qtePromptImage.color = defaultColor; // Reset to default color after flash
+    }
+
+    private IEnumerator WaitForNextArrow()
+    {
+        // Wait for the flash to finish before showing the next arrow
+        yield return new WaitForSeconds(colorFlashDuration);
+        UpdateQTEUI();
+    }
+
+    private void CompleteQTE()
     {
         isQTEActive = false;
         qtePromptImage.gameObject.SetActive(false); // Hide prompt when QTE completes
@@ -98,6 +122,11 @@ public class QTEManager : MonoBehaviour
         if(triggerCollider != null)
         {
             triggerCollider.gameObject.SetActive(false);
+        }
+
+        if (doorMovement != null)
+        {
+            doorMovement.StartSliding();
         }
 
         Debug.Log("QTE Successful!");
