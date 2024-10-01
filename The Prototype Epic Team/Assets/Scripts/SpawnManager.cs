@@ -8,15 +8,26 @@ public class SpawnManager : MonoBehaviour
 
     public bool gameOver = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public float SpawnRate = 2.0f;
+
+    public int spawnAmount;
+
+    void StartSpawning()
     {
-        
+        InvokeRepeating("Spawn", SpawnRate, SpawnRate);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Spawn()
+    {
+        for(int i = 0; i < spawnAmount; i++)
+        {
+
+        }
     }
 }
