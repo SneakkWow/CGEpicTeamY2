@@ -8,6 +8,9 @@ TagManager:
   - EscapePod
   - Enemy
   - SpawnManager
+  - Timer
+  - Canvas
+  - border
   layers:
   - Default
   - TransparentFX

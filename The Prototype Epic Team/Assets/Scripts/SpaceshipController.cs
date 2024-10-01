@@ -15,10 +15,12 @@ public class SpaceshipController : MonoBehaviour
 
     private SpawnManager spawnManager;
     public GameObject gameOverText;
+    //private Canvas c;
 
     void Start()
     {
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
+        //c = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Timer>();
     }
 
 
@@ -51,6 +53,7 @@ public class SpaceshipController : MonoBehaviour
 
             gameOverText.SetActive(true);
 
+            //c.StopTimer();
         }
     }
 }
