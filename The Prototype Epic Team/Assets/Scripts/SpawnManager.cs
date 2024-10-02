@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
     public GameObject[] asteroids;
 
     public bool gameOver = false;
@@ -33,7 +34,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    private void Spawn()
+    void Spawn()
     {
         for(int i = 0; i < spawnAmount; i++)
         {
@@ -46,6 +47,8 @@ public class SpawnManager : MonoBehaviour
             int prefabIndex = Random.Range(0, asteroids.Length);
 
             Instantiate(asteroids[prefabIndex], spawnPoint, rotation);
+            //a.GetComponent<Rigidbody>().AddForce(rotation * -spawnDirection);
+            
         }
     }
 
@@ -60,4 +63,5 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+    
 }
