@@ -30,7 +30,12 @@ public class Asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime); 
+        //Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+        if(transform.position.x > 35 || transform.position.x < -35 || transform.position.y > 35 || transform.position.y < -35)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void SetTrajectory(Vector3 direction)

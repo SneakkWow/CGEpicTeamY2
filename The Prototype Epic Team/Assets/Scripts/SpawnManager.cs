@@ -17,12 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     public float trajectoryVariance = 15.0f;
 
-    void Start()
-    {
-        StartSpawning();
-    }
-
-    void StartSpawning()
+     public void StartSpawning()
     {
         //InvokeRepeating("Spawn", SpawnRate, SpawnRate);
         StartCoroutine(SpawnRandomPrefabWithCoroutine());
@@ -46,8 +41,8 @@ public class SpawnManager : MonoBehaviour
 
             int prefabIndex = Random.Range(0, asteroids.Length);
 
-            Instantiate(asteroids[prefabIndex], spawnPoint, rotation);
-            //a.GetComponent<Rigidbody>().AddForce(rotation * -spawnDirection);
+            Instantiate(asteroids[prefabIndex], spawnPoint, rotation).GetComponent<Rigidbody>().AddForce(rotation * -spawnDirection, ForceMode.Impulse);
+            //a.GetComponent<Rigidbody>().AddForce(rotation * -spawnDirection, ForceMode.Impulse);
             
         }
     }
