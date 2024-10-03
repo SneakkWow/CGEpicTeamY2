@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MonsterBehavior : MonoBehaviour
+public class MonsterBehaviorContinuous : MonoBehaviour
 {
     public GameObject target;
     public NavMeshAgent agent;
@@ -23,11 +23,5 @@ public class MonsterBehavior : MonoBehaviour
     {
         agent.SetDestination(target.transform.position);
     }
-    void Wander()
-    {
-       
-    }
-
-    
 
 }
