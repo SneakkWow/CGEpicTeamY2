@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorMovement : MonoBehaviour
@@ -9,10 +7,18 @@ public class DoorMovement : MonoBehaviour
     private Vector3 initialPosition;
     private bool isSliding = false;
 
+    public AudioSource audioSource;  // Reference to the AudioSource component
+
     private void Start()
     {
         // Store the initial position of the door
         initialPosition = transform.position;
+
+        // Optionally, ensure we have an AudioSource component on this GameObject
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     private void Update()
@@ -35,5 +41,11 @@ public class DoorMovement : MonoBehaviour
     public void StartSliding()
     {
         isSliding = true;
+
+        // Play the sound when the door starts sliding
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
     }
 }
