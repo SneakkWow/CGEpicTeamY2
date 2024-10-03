@@ -1,3 +1,5 @@
+//Scott Abbinanti 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +22,10 @@ public class SpaceshipController : MonoBehaviour
 
     public ParticleSystem explosion;
     public AudioClip crash;
-    private AudioSource playerAudio;
+    public AudioSource playerAudio;
+
+    public GameObject videoPlayer;
+    public GameObject rawImage;
 
     public bool won = false;
 
@@ -71,9 +76,21 @@ public class SpaceshipController : MonoBehaviour
         if (won)
         {
             spawnManager.gameOver = true;
+            playerAudio.Pause();
+            rawImage.SetActive(true);
+            videoPlayer.SetActive(true);
 
+
+            StartCoroutine(LoadingNextScene());
         }
 
+    }
+
+
+    IEnumerator LoadingNextScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Kaisers Tilemap");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -90,7 +107,7 @@ public class SpaceshipController : MonoBehaviour
 
             if (!won)
             {
-                playerAudio.PlayOneShot(crash, 1.0f);
+                playerAudio.PlayOneShot(crash, 2.0f);
             }
         }
     }
