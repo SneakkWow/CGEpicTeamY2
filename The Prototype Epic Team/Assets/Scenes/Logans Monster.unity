@@ -558,9 +558,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   other: {fileID: 35718903}
-  closestDistance: 10
-  closeDistance: 20
-  farDistance: 30
+  closestDistance: 5
+  closeDistance: 10
+  farDistance: 20
   ambience: {fileID: 8300000, guid: deb148186418f6c49a7dd554c9796edf, type: 3}
   closestMusic: {fileID: 8300000, guid: 5cb376bb5d7cdde47a7174c6420749ae, type: 3}
   closeMusic: {fileID: 8300000, guid: 296407f32b59c234fa9e8b348dfb1fe8, type: 3}
