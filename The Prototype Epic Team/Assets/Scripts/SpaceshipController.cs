@@ -18,11 +18,16 @@ public class SpaceshipController : MonoBehaviour
     public GameObject gameOverText;
     public Timer timer;
 
-    private bool won = false;
+    public ParticleSystem explosion;
+    public AudioClip crash;
+    private AudioSource playerAudio;
+
+    public bool won = false;
 
     void Start()
     {
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
 
@@ -63,11 +68,12 @@ public class SpaceshipController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, -14, transform.position.z);
         }
 
-        /*if (time.Minutes == 1 && time.Seconds == 12 && time.Milliseconds == 276)
+        if (won)
         {
             spawnManager.gameOver = true;
-            won = true;
-        }*/
+
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,6 +85,13 @@ public class SpaceshipController : MonoBehaviour
             gameOverText.SetActive(true);
 
             timer.StopTimer();
+
+            explosion.Play();
+
+            if (!won)
+            {
+                playerAudio.PlayOneShot(crash, 1.0f);
+            }
         }
     }
 }

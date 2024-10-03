@@ -49,13 +49,13 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnRandomPrefabWithCoroutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         while (gameOver == false)
         {
             Spawn();
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
         }
     }
     
