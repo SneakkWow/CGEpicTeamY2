@@ -10,7 +10,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float batteryDrainRate = 1f; // Rate at which battery drains per second
     private bool FlashlightActive = false;
 
-    private float currentBattery = 100f; // Current battery level
+    public float currentBattery = 100f; // Current battery level
     private Image batteryImage; // Reference to the Image component of the slider's fill
     private Light flashlight; // Reference to the Light component
 

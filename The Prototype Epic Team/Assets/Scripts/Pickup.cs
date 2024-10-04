@@ -9,6 +9,7 @@ public class Pickup : MonoBehaviour
     public GameObject player; // Reference to the player GameObject
     public Text interactionText; // Reference to the UI Text for interaction feedback
     private bool isPlayerLookingAtItem = false; // Track if the player is looking at the item
+    public Flashlight currentFlashlight;
 
     void Start()
     {
@@ -58,10 +59,12 @@ public class Pickup : MonoBehaviour
     private void InteractWithItem()
     {
         // Logic to collect the item (e.g., a battery)
-        Debug.Log("Item collected!"); // Placeholder for item collection logic
+        //Debug.Log("Item collected!"); // Placeholder for item collection logic
 
         // Destroy or deactivate the item
         Destroy(gameObject);
         interactionText.gameObject.SetActive(false); // Hide the prompt after interaction
+
+        currentFlashlight.currentBattery = 100f;
     }
 }
