@@ -16,6 +16,8 @@ public class SpaceshipController : MonoBehaviour
 
     public float turnSpeed;
 
+    public bool canMove = true;
+
     private SpawnManager spawnManager;
     public GameObject gameOverText;
     public Timer timer;
@@ -33,6 +35,7 @@ public class SpaceshipController : MonoBehaviour
     {
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
         playerAudio = GetComponent<AudioSource>();
+        //Time.timeScale = 1;
     }
 
 
@@ -43,34 +46,40 @@ public class SpaceshipController : MonoBehaviour
 
         verticalInput = Input.GetAxis("Vertical");
 
-        if(verticalInput > 0)
+
+        if (canMove)
         {
-            transform.Translate(Vector3.forward * verticalInput * moveSpeed * Time.deltaTime);
+            if (verticalInput > 0)
+            {
+                transform.Translate(Vector3.forward * verticalInput * moveSpeed * Time.deltaTime);
+            }
+
+
+            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
+
+            
+
+            if (transform.position.x >= 26)
+            {
+                transform.position = new Vector3(26, transform.position.y, transform.position.z);
+            }
+            if (transform.position.x <= -26)
+            {
+                transform.position = new Vector3(-26, transform.position.y, transform.position.z);
+            }
+            if (transform.position.y >= 14)
+            {
+                transform.position = new Vector3(transform.position.x, 14, transform.position.z);
+            }
+            if (transform.position.y <= -14)
+            {
+                transform.position = new Vector3(transform.position.x, -14, transform.position.z);
+            }
         }
 
-
-        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
-
-        if (Input.GetKeyDown(KeyCode.R) && spawnManager.gameOver ==  true && won == false)
+        if (Input.GetKeyDown(KeyCode.R) && spawnManager.gameOver == true && won == false)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
-        if(transform.position.x >= 26)
-        {
-            transform.position = new Vector3(26, transform.position.y, transform.position.z);
-        }
-        if(transform.position.x <= -26)
-        {
-            transform.position = new Vector3(-26, transform.position.y, transform.position.z);
-        }
-        if(transform.position.y >= 14)
-        {
-            transform.position = new Vector3(transform.position.x, 14, transform.position.z);
-        }
-        if(transform.position.y <= -14)
-        {
-            transform.position = new Vector3(transform.position.x, -14, transform.position.z);
         }
 
         if (won)
@@ -97,6 +106,7 @@ public class SpaceshipController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            
             spawnManager.gameOver = true;
 
             gameOverText.SetActive(true);
@@ -109,6 +119,8 @@ public class SpaceshipController : MonoBehaviour
             {
                 playerAudio.PlayOneShot(crash, 2.0f);
             }
+            //freeze player movement
+            canMove = false;
         }
     }
 }

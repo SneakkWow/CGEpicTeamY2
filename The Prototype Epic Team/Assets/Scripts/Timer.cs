@@ -18,6 +18,8 @@ public class Timer : MonoBehaviour
 
     private AudioSource audio;
 
+    public bool isPlaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +41,10 @@ public class Timer : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
 
         timerText.text = time.Minutes.ToString() + " : " + time.Seconds.ToString() + " : " + time.Milliseconds.ToString();
-        if (time.Minutes == 1 && time.Seconds >= 2 && time.Milliseconds >= 560)
+        if (time.Minutes == 1 && time.Seconds >= 2 && time.Milliseconds >= 560 && !isPlaying)
         {
             //spaceshipController.playerAudio.Pause();
+            isPlaying = true;
             warning.SetActive(true);
             audio.Play();
         }
