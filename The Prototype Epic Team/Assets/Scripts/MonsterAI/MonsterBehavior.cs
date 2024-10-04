@@ -11,7 +11,7 @@ public class MonsterBehavior : MonoBehaviour
     public float freezeDuration = 2f; // Duration the monster will freeze
     private bool isFrozen = false; // Monster's frozen state
 
-    public Flashlight currentFlashlight;
+    //public Flashlight currentFlashlight;
 
     void Start()
     {

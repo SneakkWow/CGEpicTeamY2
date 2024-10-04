@@ -48,7 +48,7 @@ public class Flashlight : MonoBehaviour
             UpdateBatteryColor();
 
             // Check for flicker effect if battery is low
-            if (currentBattery < 20f)
+            if (currentBattery < 4f)
             {
                 StartCoroutine(FlickerLight());
             }
@@ -73,7 +73,7 @@ public class Flashlight : MonoBehaviour
         float flickerDuration = 0.1f; // Duration of each flicker
         float flickerInterval = 0.1f; // Interval between flickers
 
-        while (currentBattery > 0 && currentBattery < 3f)
+        while (currentBattery > 0 && currentBattery < 20f)
         {
             flashlight.enabled = !flashlight.enabled; // Toggle the light on/off
             yield return new WaitForSeconds(flickerInterval); // Wait for the flicker interval
