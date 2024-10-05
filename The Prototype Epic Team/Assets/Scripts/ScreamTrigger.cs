@@ -8,6 +8,8 @@ public class ScreamTrigger : MonoBehaviour
 
     public GameObject monster;
 
+    public Vector3 offset = new Vector3(0, 30, 0);
+
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object entering the trigger is the player
@@ -20,9 +22,9 @@ public class ScreamTrigger : MonoBehaviour
             monster.gameObject.SetActive(true);
 
             // Start the camera shake
-            StartCoroutine(cameraShake.Shake(1f, 0.1f)); // You can adjust duration and magnitude
+            StartCoroutine(cameraShake.Shake(1.5f, 0.2f)); // You can adjust duration and magnitude
 
-            gameObject.SetActive(false); // Disable the trigger zone
+            gameObject.transform.position += offset; // Disable the trigger zone
         }
     }
 }

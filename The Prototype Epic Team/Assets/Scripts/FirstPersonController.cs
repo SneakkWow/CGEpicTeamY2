@@ -18,8 +18,6 @@ using UnityEngine.SceneManagement;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
-    
-
 
     #region Camera Movement Variables
 
@@ -63,7 +61,7 @@ public class FirstPersonController : MonoBehaviour
     public float maxVelocityChange = 10f;
 
     // Internal Variables
-    private bool isWalking = false;
+    public bool isWalking = false;
 
     #region Sprint
 
@@ -385,9 +383,11 @@ public class FirstPersonController : MonoBehaviour
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
             {
                 isWalking = true;
+
             }
             else
             {
+                
                 isWalking = false;
             }
 
