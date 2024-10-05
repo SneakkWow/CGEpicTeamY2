@@ -14,6 +14,9 @@ public class Flashlight : MonoBehaviour
     private Image batteryImage; // Reference to the Image component of the slider's fill
     private Light flashlight; // Reference to the Light component
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip flashlightClick;
+
     void Start()
     {
         FlashlightLight.SetActive(false);
@@ -29,6 +32,7 @@ public class Flashlight : MonoBehaviour
         {
             FlashlightActive = !FlashlightActive; // Toggle flashlight state
             FlashlightLight.SetActive(FlashlightActive);
+            audioSource.PlayOneShot(flashlightClick, 1.0f);
         }
 
         if (FlashlightActive)
