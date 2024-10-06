@@ -37,6 +37,11 @@ public class QTEManager : MonoBehaviour
     private void Start()
     {
         qtePromptImage.gameObject.SetActive(false); // Hide prompt initially
+
+        if (doorMovement == null)
+        {
+            doorMovement = GetComponent<DoorMovement>();
+        }
     }
 
     private void Update()
