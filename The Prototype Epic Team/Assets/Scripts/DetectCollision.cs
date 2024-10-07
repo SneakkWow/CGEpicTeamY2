@@ -31,7 +31,8 @@ public class DetectCollision : MonoBehaviour
         }
         else if (gameOver && youWin && Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Scarcade");
+            SceneManager.LoadScene("Scarcade", LoadSceneMode.Single); // Replace the current scene
+
         }
     }
     private void OnTriggerEnter(Collider other)

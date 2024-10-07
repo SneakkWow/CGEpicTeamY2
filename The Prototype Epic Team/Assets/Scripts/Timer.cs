@@ -20,6 +20,8 @@ public class Timer : MonoBehaviour
 
     public bool isPlaying = false;
 
+    public ArcadeStart restartGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,12 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            //StartTimer();
+            restartGame.StartGame();
+        }
+
         if (timerActive)
         {
             currentTime += Time.deltaTime;

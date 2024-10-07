@@ -55,7 +55,7 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
             if (isLooking)
             {
                 lookTimer += Time.deltaTime;
-                Debug.Log("Player is looking at the monster. Timer: " + lookTimer);
+                //Debug.Log("Player is looking at the monster. Timer: " + lookTimer);
 
                 if (lookTimer >= lookDuration)
                 {
@@ -65,7 +65,7 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
             else
             {
                 lookTimer = 0.0f;
-                Debug.Log("Player stopped looking at the monster. Timer reset.");
+                //Debug.Log("Player stopped looking at the monster. Timer reset.");
             }
         }
     }
