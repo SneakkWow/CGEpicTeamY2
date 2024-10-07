@@ -74,7 +74,7 @@ public class Flashlight : MonoBehaviour
 
     private IEnumerator FlickerLight()
     {
-        float flickerDuration = 0.1f; // Duration of each flicker
+        //float flickerDuration = 0.1f; // Duration of each flicker
         float flickerInterval = 0.1f; // Interval between flickers
 
         while (currentBattery > 0 && currentBattery < 20f)

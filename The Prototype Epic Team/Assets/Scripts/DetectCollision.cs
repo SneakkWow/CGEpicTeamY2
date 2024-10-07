@@ -25,9 +25,13 @@ public class DetectCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver && Input.GetKeyDown(KeyCode.R))
+        if (gameOver && !youWin && Input.GetKeyDown(KeyCode.R))
         {
             RestartScene();
+        }
+        else if (gameOver && youWin && Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Scarcade");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -41,6 +45,7 @@ public class DetectCollision : MonoBehaviour
         {
             youWin = true; 
             GameOver();
+            
         }
     }
 
