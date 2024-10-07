@@ -37,7 +37,7 @@ public class DistanceTo: MonoBehaviour
             // square the distance we compare with
             if (sqrLen < closestDistance * closestDistance)
             { 
-                Debug.Log("The other transform is so close to me!");
+                //Debug.Log("The other transform is so close to me!");
                 if (!clipThreeOn)
                 {
                     clipThreeOn = true;
@@ -49,7 +49,7 @@ public class DistanceTo: MonoBehaviour
             }
             else if (sqrLen < closeDistance * closeDistance)
             {
-                Debug.Log("The other transform is close to me!");
+                //Debug.Log("The other transform is close to me!");
                 if (!clipTwoOn)
                 {
                     clipTwoOn = true;
@@ -62,7 +62,7 @@ public class DistanceTo: MonoBehaviour
             }
             else if (sqrLen < farDistance * farDistance)
             {
-                Debug.Log("The other transform is far from me!");
+                //Debug.Log("The other transform is far from me!");
                 if (!clipOneOn)
                 {
                     clipOneOn = true;
@@ -75,7 +75,7 @@ public class DistanceTo: MonoBehaviour
             }
             else
             {
-                Debug.Log("Im so safe right now");
+                //Debug.Log("Im so safe right now");
                 if (!clipZeroOn)
                 {
                     clipZeroOn = true;
