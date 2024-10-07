@@ -40615,7 +40615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776177705685453281, guid: 51932428327a22a4b913b916af5d0ef7, type: 3}
       propertyPath: m_Text
-      value: The freak monster got you! Press R to retry
+      value: "The freak monster got you!\n Press R to retry"
       objectReference: {fileID: 0}
     - target: {fileID: 5776177705685453281, guid: 51932428327a22a4b913b916af5d0ef7, type: 3}
       propertyPath: m_Color.b
@@ -40639,7 +40639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5776177705685453283, guid: 51932428327a22a4b913b916af5d0ef7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5776177706229684252, guid: 51932428327a22a4b913b916af5d0ef7, type: 3}
       propertyPath: m_Text
