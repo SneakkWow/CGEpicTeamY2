@@ -36,6 +36,10 @@ public class SpaceshipController : MonoBehaviour
         spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
         playerAudio = GetComponent<AudioSource>();
         //Time.timeScale = 1;
+
+        canMove = true;
+        spawnManager.gameOver = false;
+        won = false;
     }
 
 
