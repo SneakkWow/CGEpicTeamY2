@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
 
         timerText.text = time.Minutes.ToString() + " : " + time.Seconds.ToString() + " : " + time.Milliseconds.ToString();
-        if (time.Minutes == 1 && time.Seconds >= 2 && time.Milliseconds >= 560 && !isPlaying)
+        if (/*time.Minutes == 1 && */ time.Seconds >= 45 && time.Milliseconds >= 560 && !isPlaying)
         {
             //spaceshipController.playerAudio.Pause();
             isPlaying = true;
@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour
         }
 
 
-        if (time.Minutes == 1 && time.Seconds >= 12 && time.Milliseconds >= 236)
+        if (/*time.Minutes == 1 &&*/ time.Seconds >= 56 && time.Milliseconds >= 236)
         {
             warning.SetActive(false);
             StopTimer();
