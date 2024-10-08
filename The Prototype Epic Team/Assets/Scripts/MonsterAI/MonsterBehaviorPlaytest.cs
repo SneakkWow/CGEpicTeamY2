@@ -64,7 +64,7 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
             }
             else
             {
-                lookTimer = 0.0f;
+                //lookTimer = 0.0f;
                 //Debug.Log("Player stopped looking at the monster. Timer reset.");
             }
         }

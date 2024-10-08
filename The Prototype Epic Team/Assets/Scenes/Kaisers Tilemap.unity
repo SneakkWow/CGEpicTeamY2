@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0019197031, g: 0.0029978207, b: 0.0037078483, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -53070,7 +53070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1742535963}
   agent: {fileID: 1450314363}
-  lookDuration: 2
+  lookDuration: 1.5
   moveAwayDistance: 100
   checkRadius: 50
   moveAwaySpeed: 100
@@ -73408,7 +73408,7 @@ PrefabInstance:
     - target: {fileID: 6223345382581849533, guid: 8938b96eb45ca1e4981bcedc4e489964, type: 3}
       propertyPath: interactionText
       value: 
-      objectReference: {fileID: 93510904}
+      objectReference: {fileID: 2061348206}
     - target: {fileID: 6223345382581849533, guid: 8938b96eb45ca1e4981bcedc4e489964, type: 3}
       propertyPath: currentFlashlight
       value: 
@@ -78803,6 +78803,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 464786, guid: db40a598792ed0f47b75562525b4e6c2, type: 3}
   m_PrefabInstance: {fileID: 1218430721}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2061348206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4677047278952508662, guid: 9a52541dc6b63d141acd4ed19f5aeb68, type: 3}
+  m_PrefabInstance: {fileID: 1718121030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2061589905
 PrefabInstance:
   m_ObjectHideFlags: 0
