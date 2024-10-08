@@ -21,6 +21,8 @@ public class DialogManager : MonoBehaviour
         continueButton.SetActive(false);
         dialogPanel.SetActive(true);
         StartCoroutine(Type());
+        Time.timeScale = 0;
+
     }
 
     IEnumerator Type()
@@ -48,6 +50,7 @@ public class DialogManager : MonoBehaviour
         {
             textbox.text = "";
             dialogPanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
     //// Start is called before the first frame update
