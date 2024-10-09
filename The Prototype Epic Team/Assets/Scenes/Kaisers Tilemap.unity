@@ -81340,14 +81340,15 @@ MonoBehaviour:
   - Welcome to  "The Prototype". Try to locate the escape pod! Press "Enter" to Continue!
   - To move use WASD to navigate the map and press "Shift" to run! If you want to
     sneak press "Ctrl".
-  - "The emergency lights won\u2019t be enough to see. Press 'F' to activate your
-    flashlight, but use it wisely\u2014the light won't last forever! Find the compound
-    to recharge it!"
+  - "Due to the astroids the power has weny out and the emergency lights won\u2019t
+    be enough to see. Press 'F' to activate your flashlight, but use it wisely\u2014the
+    light won't last forever! Find the compound to recharge it!"
   - "You may encounter red lights on doors throughout the map. Stay alert and be
     ready to react quickly\u2014these lights can be either helpful or dangerous,
     and may be the deciding factor between survival and death!"
-  - "Be careful\u2014if you ever feel like you're being watched, turn around. It
-    might just be the key to preventing your death! But, never forget RUN!"
+  - "Be careful\u2014if you ever feel like you're being watched, turn around and
+    look at the monster. It might just be the key to preventing your death! But,
+    never forget RUN!"
   - If you feel lost or unsure of where to go, look for the arrows on the walls to
     guide your way!
   typingSpeed: 0.02
