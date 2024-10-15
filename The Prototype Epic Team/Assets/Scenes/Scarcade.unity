@@ -1073,7 +1073,7 @@ PrefabInstance:
       objectReference: {fileID: 614214747}
     - target: {fileID: 968944943, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: turnSpeed
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 968944943, guid: b3c0a61dfe701344d819eb701e83f4b7, type: 3}
       propertyPath: playerAudio
