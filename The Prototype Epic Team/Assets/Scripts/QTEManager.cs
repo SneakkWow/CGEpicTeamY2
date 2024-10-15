@@ -74,7 +74,13 @@ public class QTEManager : MonoBehaviour
     private void HandleQTE()
     {
         if (Input.anyKeyDown)
-        {
+        { 
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                StopQTE();
+                return;
+            }
+
             if (CheckCorrectKey(arrowSequence[currentInputIndex]))
             {
                 // Correct input: Flash green and move to the next input after a delay
