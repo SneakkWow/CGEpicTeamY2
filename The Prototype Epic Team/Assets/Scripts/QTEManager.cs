@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class QTEManager : MonoBehaviour
 {
     // Array of arrow keys
-    public KeyCode[] possibleArrows = { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
+    public KeyCode[] possibleArrows = { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D};
+
+
     private KeyCode[] arrowSequence = new KeyCode[5];
     private int currentInputIndex = 0;
 
@@ -73,7 +75,7 @@ public class QTEManager : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            if (Input.GetKeyDown(arrowSequence[currentInputIndex]))
+            if (CheckCorrectKey(arrowSequence[currentInputIndex]))
             {
                 // Correct input: Flash green and move to the next input after a delay
                 StartCoroutine(FlashColor(correctColor));
@@ -90,12 +92,37 @@ public class QTEManager : MonoBehaviour
                     StartCoroutine(WaitForNextArrow());
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+            else if (CheckAnyArrowKey())
             {
                 // Incorrect input: Flash red
                 StartCoroutine(FlashColor(incorrectColor));
             }
         }
+    }
+
+    private bool CheckCorrectKey(KeyCode expectedKey)
+    {
+        switch (expectedKey)
+        {
+            case KeyCode.UpArrow:
+                return Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
+            case KeyCode.DownArrow:
+                return Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
+            case KeyCode.LeftArrow:
+                return Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A);
+            case KeyCode.RightArrow:
+                return Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D);
+            default:
+                return false;
+        }
+    }
+
+    private bool CheckAnyArrowKey()
+    {
+        return Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) ||
+               Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) ||
+               Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||
+               Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D);
     }
 
     private IEnumerator FlashColor(Color flashColor)
