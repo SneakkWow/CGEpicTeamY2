@@ -25251,7 +25251,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766644976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000040233}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000012069956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 514149374}
@@ -25260,7 +25260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131.64, y: -36.317}
+  m_AnchoredPosition: {x: 117.18841, y: -95.41983}
   m_SizeDelta: {x: 116.8113, y: 21.9022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &766644978
@@ -26824,8 +26824,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1272, y: -0.8322}
-  m_SizeDelta: {x: 602.2079, y: 92.8725}
+  m_AnchoredPosition: {x: 0.1272, y: -35.1494}
+  m_SizeDelta: {x: 602.2079, y: 161.507}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &818607079 stripped
 Transform:
@@ -33541,7 +33541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 248.45161, y: -35.89717}
+  m_AnchoredPosition: {x: 234, y: -95}
   m_SizeDelta: {x: 116.8113, y: 21.9022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024506945
@@ -71725,10 +71725,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textbox: {fileID: 817629924}
   sentences:
-  - Welcome to  "The Prototype". Try to locate the escape pod! Press "Enter" to Continue!
+  - Welcome to  "The Prototype". Try to locate the escape pod! Press "Enter" to Continue
+    or "P" is to Skip!
   - To move use WASD to navigate the map and press "Shift" to run! If you want to
     sneak press "Ctrl".
-  - "Due to the astroids the power has weny out and the emergency lights won\u2019t
+  - "Due to the astroids the power has went out and the emergency lights won\u2019t
     be enough to see. Press 'F' to activate your flashlight, but use it wisely\u2014the
     light won't last forever! Find the compound to recharge it!"
   - "You may encounter red lights on doors throughout the map. Stay alert and be
