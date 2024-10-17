@@ -82,7 +82,7 @@ public class DialogManager : MonoBehaviour
         NextSentence();
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             SkipDialogue();
         }

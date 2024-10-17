@@ -71726,7 +71726,7 @@ MonoBehaviour:
   textbox: {fileID: 817629924}
   sentences:
   - Welcome to  "The Prototype". Try to locate the escape pod! Press "Enter" to Continue
-    or "P" is to Skip!
+    or "X" is to Skip!
   - To move use WASD to navigate the map and press "Shift" to run! If you want to
     sneak press "Ctrl".
   - "Due to the astroids the power has went out and the emergency lights won\u2019t
