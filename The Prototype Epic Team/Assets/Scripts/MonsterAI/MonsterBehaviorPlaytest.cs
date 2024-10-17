@@ -18,8 +18,11 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
     private bool isMovingAway = false;
     private float moveAwayTimer = 0.0f;
 
+    public Animator anim;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
         if (target == null)
@@ -48,12 +51,20 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
         else
         {
             agent.SetDestination(target.transform.position); // Follow the player
-
+            
             // Check if the player is looking at the monster
             isLooking = IsPlayerLookingAtMonster();
 
             if (isLooking)
             {
+                if (lookTimer < 0.2f)
+                {
+                    anim.SetBool("seen", true);
+                }
+                else
+                {
+                    anim.SetBool("seen", false);
+                }
                 lookTimer += Time.deltaTime;
                 //Debug.Log("Player is looking at the monster. Timer: " + lookTimer);
 
@@ -64,7 +75,7 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
             }
             else
             {
-                //lookTimer = 0.0f;
+                lookTimer = 0.0f;
                 //Debug.Log("Player stopped looking at the monster. Timer reset.");
             }
         }
@@ -90,12 +101,14 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
     void StartBackingAway()
     {
         Debug.Log("Player has been looking for 3 seconds. Monster backing away...");
+        anim.SetBool("chasing", false);
+        anim.SetBool("seen", false);
+        anim.SetBool("walkingAway", true);
 
         // Set the agent to move away speed
         agent.speed = moveAwaySpeed;
         isMovingAway = true;
         moveAwayTimer = 0.0f; // Reset the move-away timer
-
         // Calculate direction and move away
         Vector3 directionAwayFromPlayer = (transform.position - target.transform.position).normalized;
         Vector3 proposedPosition = transform.position + directionAwayFromPlayer * moveAwayDistance;
@@ -110,7 +123,9 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
     void ResetChasing()
     {
         Debug.Log("Monster reset to chasing mode.");
-
+        anim.SetBool("chasing", true);
+        anim.SetBool("seen", false);
+        anim.SetBool("walkingAway", false);
         // Reset the speed back to normal
         agent.speed = normalSpeed;
         isMovingAway = false; // Start chasing again

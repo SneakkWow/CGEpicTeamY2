@@ -12,6 +12,7 @@ public class DetectCollision : MonoBehaviour
     public Text deathText;
     public Text winText;
 
+    public MonsterBehaviorPlaytest monsterAnim;
 
     public MonoBehaviour script1;
     public MonoBehaviour script2;
@@ -40,6 +41,8 @@ public class DetectCollision : MonoBehaviour
         if (other.CompareTag("Monster"))
         {
             GameOver();
+            monsterAnim.anim.SetBool("playerDied", true);
+            
         }
 
         else if (other.CompareTag("EscapePod"))
@@ -53,7 +56,6 @@ public class DetectCollision : MonoBehaviour
     private void GameOver()
     {
         // Stop the game time
-        Time.timeScale = 0;
 
         //Disable the camera and flashlight controls
         script1.enabled = false;
@@ -68,7 +70,8 @@ public class DetectCollision : MonoBehaviour
             Debug.Log("You escaped!");
 
             winText.gameObject.SetActive(true);
-            
+            Time.timeScale = 0;
+
         }
         else //lose text
         {
