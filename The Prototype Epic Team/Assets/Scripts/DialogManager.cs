@@ -14,6 +14,7 @@ public class DialogManager : MonoBehaviour
 
     public GameObject continueButton;
     public GameObject dialogPanel;
+    public GameObject skipButton;
 
     private void OnEnable()
     {
@@ -22,6 +23,7 @@ public class DialogManager : MonoBehaviour
         dialogPanel.SetActive(true);
         StartCoroutine(Type());
         Time.timeScale = 0;
+        skipButton.SetActive(true);
 
     }
 
@@ -48,15 +50,28 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-            textbox.text = "";
-            dialogPanel.SetActive(false);
-            Time.timeScale = 1;
+            EndDialogue();
         }
+    }
+
+    public void SkipDialogue()
+    {
+        EndDialogue();
+    }
+
+    private void EndDialogue()
+    {
+        textbox.text = "";
+        dialogPanel.SetActive(false);
+        continueButton.SetActive(false);
+        skipButton.SetActive(false);
+        Time.timeScale = 1;
+
     }
     //// Start is called before the first frame update
     //void Start()
     //{
-        
+
     //}
 
     ////// Update is called once per frame
@@ -65,6 +80,11 @@ public class DialogManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && continueButton.activeSelf) 
         {
         NextSentence();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SkipDialogue();
         }
     }
 }
