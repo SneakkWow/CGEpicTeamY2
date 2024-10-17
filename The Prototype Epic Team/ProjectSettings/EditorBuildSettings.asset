@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kaisers Tilemap.unity
     guid: 602c8b25e0631a143967831202305b33
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 90c9ec2f90b8e274db00b5d91812f222
   m_configObjects: {}
