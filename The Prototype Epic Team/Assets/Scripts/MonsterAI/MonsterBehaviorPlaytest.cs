@@ -35,6 +35,8 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
         agent.acceleration = 8.0f;
         agent.angularSpeed = 120f;
         agent.stoppingDistance = 0.5f;
+
+
     }
 
     void Update()
@@ -101,9 +103,8 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
     void StartBackingAway()
     {
         Debug.Log("Player has been looking for 3 seconds. Monster backing away...");
-        anim.SetBool("chasing", false);
+        anim.SetBool("chasing", true);
         anim.SetBool("seen", false);
-        anim.SetBool("walkingAway", true);
 
         // Set the agent to move away speed
         agent.speed = moveAwaySpeed;
@@ -125,7 +126,6 @@ public class MonsterBehaviorPlaytest : MonoBehaviour
         Debug.Log("Monster reset to chasing mode.");
         anim.SetBool("chasing", true);
         anim.SetBool("seen", false);
-        anim.SetBool("walkingAway", false);
         // Reset the speed back to normal
         agent.speed = normalSpeed;
         isMovingAway = false; // Start chasing again
