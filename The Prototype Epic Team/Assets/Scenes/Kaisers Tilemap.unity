@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00056051865, g: 0.000873584, b: 0.0010919134, a: 1}
+  m_IndirectSpecularColor: {r: 0.00056077435, g: 0.0008758342, b: 0.0010831997, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -46523,6 +46523,7 @@ MonoBehaviour:
   moveAwaySpeed: 100
   normalSpeed: 8
   resetChaseTime: 10
+  anim: {fileID: 0}
 --- !u!195 &1450314363 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 2652350109054383789, guid: 78911fd0f7cabdc46ba1ddded2cf3edf, type: 3}
@@ -71727,19 +71728,16 @@ MonoBehaviour:
   sentences:
   - Welcome to  "The Prototype". Try to locate the escape pod! Press "Enter" to Continue
     or "X" is to Skip!
-  - To move use WASD to navigate the map and press "Shift" to run! If you want to
-    sneak press "Ctrl".
+  - Us the mouse to look around and the "WASD" keys to move. If you need, use the
+    shift key to run!
   - "Due to the astroids the power has went out and the emergency lights won\u2019t
     be enough to see. Press 'F' to activate your flashlight, but use it wisely\u2014the
     light won't last forever! Find the compound to recharge it!"
-  - "You may encounter red lights on doors throughout the map. Stay alert and be
-    ready to react quickly\u2014these lights can be either helpful or dangerous,
-    and may be the deciding factor between survival and death!"
-  - "Be careful\u2014if you ever feel like you're being watched, turn around and
-    look at the monster. It might just be the key to preventing your death! But,
-    never forget RUN!"
-  - If you feel lost or unsure of where to go, look for the arrows on the walls to
-    guide your way!
+  - The doors throughout the ship are marked with red lights. To open them use the
+    arrow keys or the "WASD" keys to enter the correct inputs. If you need to leave
+    the event, press "Q'.
+  - During research, the prototype did not like to be seen, so use this to your advantage.
+  - Good luck!
   typingSpeed: 0.02
   continueButton: {fileID: 1024506943}
   dialogPanel: {fileID: 817629923}
