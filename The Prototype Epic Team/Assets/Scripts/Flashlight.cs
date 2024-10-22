@@ -5,14 +5,14 @@ using UnityEngine.UI; // For UI elements
 
 public class Flashlight : MonoBehaviour
 {
-    [SerializeField] GameObject FlashlightLight; // The light GameObject
-    [SerializeField] Slider batterySlider; // Reference to the battery slider
+    public GameObject FlashlightLight; // The light GameObject
+    public Slider batterySlider; // Reference to the battery slider
     [SerializeField] float batteryDrainRate = 1f; // Rate at which battery drains per second
-    private bool FlashlightActive = false;
+    public bool FlashlightActive = false;
 
     public float currentBattery = 100f; // Current battery level
     private Image batteryImage; // Reference to the Image component of the slider's fill
-    private Light flashlight; // Reference to the Light component
+    public Light flashlight; // Reference to the Light component
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip flashlightClick;
@@ -45,6 +45,7 @@ public class Flashlight : MonoBehaviour
     {
         if (currentBattery > 0)
         {
+            FlashlightLight.SetActive(true);
             currentBattery -= batteryDrainRate * Time.deltaTime; // Reduce battery over time
             batterySlider.value = currentBattery; // Update the slider value
 

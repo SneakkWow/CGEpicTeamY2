@@ -66,5 +66,8 @@ public class Pickup : MonoBehaviour
         interactionText.gameObject.SetActive(false); // Hide the prompt after interaction
 
         currentFlashlight.currentBattery = 100f;
+        //currentFlashlight.batterySlider.value = currentFlashlight.currentBattery;
+        //currentFlashlight.FlashlightLight.SetActive(true);
+        currentFlashlight.flashlight.enabled = true;
     }
 }
