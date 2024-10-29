@@ -487,9 +487,20 @@ MonoBehaviour:
   - {fileID: 1612625316}
   - {fileID: 750182319}
   - {fileID: 1839991858}
-  enemies: []
+  enemies:
+  - {fileID: 919132149155446097, guid: 3a3e7d3ce4660ef4fb4f8b896cc40ae0, type: 3}
+  - {fileID: 919132149155446097, guid: 416a53fbdcc3e724cbf0c5f7f4b215b5, type: 3}
+  - {fileID: 919132149155446097, guid: 4bdeb57382cfd8b44ba2ae131610b847, type: 3}
+  - {fileID: 919132149155446097, guid: 5f4fc06cae512394b9b79b075baddec3, type: 3}
+  - {fileID: 919132149155446097, guid: 9c2f43d5c34cf8041a833c4cd4397002, type: 3}
+  - {fileID: 919132149155446097, guid: 794a545a536aff340abfee4c4cf30e23, type: 3}
+  - {fileID: 919132149155446097, guid: 8c316c1b4d3f0ab45b32f9fbe5f7560f, type: 3}
+  - {fileID: 919132149155446097, guid: 5e7ed4dddb41ba546a20bed3ba2897e4, type: 3}
+  - {fileID: 919132149155446097, guid: 13077b4bb1d0ba149b1503269e6e48c7, type: 3}
   gameOver: 0
   inRound: 0
+  spawnRate: 2
+  spawnAmount: 1
 --- !u!4 &1726007999
 Transform:
   m_ObjectHideFlags: 0

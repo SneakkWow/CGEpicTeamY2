@@ -15,6 +15,9 @@ public class SpawnManager : MonoBehaviour
     public bool gameOver = false;
     public bool inRound = false;
 
+    public float spawnRate = 2.0f;
+    public int spawnAmount = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class SpawnManager : MonoBehaviour
 
     void Spawn()
     {
-
+        int enemy = Random.Range(0, enemies.Length);
+        int spawnPoint = Random.Range(0, spawnPoints.Length);
     }
 }
