@@ -15,14 +15,15 @@ public class SpawnManager : MonoBehaviour
     public bool gameOver = false;
     public bool inRound = false;
 
-    public float spawnRate = 2.0f;
-    public int spawnAmount = 1;
+    public int spawnAmount = 5;
+
+    public bool enemiesLeft = true;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //StartSpawning();
     }
 
     // Update is called once per frame
@@ -31,9 +32,38 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    void Spawn()
+    IEnumerator Spawn()
+    {
+
+        while(enemiesLeft == true && gameOver == false)
+        {
+            
+            for(int i = 0; i < spawnAmount + roundNumber; i++)
+            {
+                SpawnSingleEnemy();
+                yield return new WaitForSeconds(3f);
+            }
+
+        }
+        
+    }
+
+    public void StartSpawning()
+    {
+        StartCoroutine(Spawn());
+    }
+
+    public void StopSpawning()
+    {
+        StopCoroutine(Spawn());
+    }
+
+    void SpawnSingleEnemy()
     {
         int enemy = Random.Range(0, enemies.Length);
         int spawnPoint = Random.Range(0, spawnPoints.Length);
+        Vector3 spawnLocation = new Vector3(spawnPoints[spawnPoint].transform.position.x, spawnPoints[spawnPoint].transform.position.y, spawnPoints[spawnPoint].transform.position.z);
+
+        Instantiate(enemies[enemy], spawnLocation, Quaternion.identity);
     }
 }
