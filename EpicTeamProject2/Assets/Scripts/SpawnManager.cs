@@ -10,35 +10,42 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject[] enemies;
 
-    public static int roundNumber = 1;
+    public int roundNumber;
 
     public bool gameOver = false;
-    public bool inRound = false;
 
     public int spawnAmount = 5;
 
-    public bool enemiesLeft = true;
+    public int enemyCount;
 
 
     // Start is called before the first frame update
     void Start()
     {
         //StartSpawning();
+        roundNumber = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
     IEnumerator Spawn()
     {
+        int i;
 
-        while(enemiesLeft == true && gameOver == false)
+        while(gameOver == false)
         {
-            
-            for(int i = 0; i < spawnAmount + roundNumber; i++)
+            if (enemyCount == 0)
+            {
+                yield return new WaitForSeconds(20f);
+                roundNumber++;
+                i = 0;
+            }
+
+            for (i = 0; i < spawnAmount + roundNumber; i++)
             {
                 SpawnSingleEnemy();
                 yield return new WaitForSeconds(3f);
