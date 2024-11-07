@@ -488,19 +488,19 @@ MonoBehaviour:
   - {fileID: 750182319}
   - {fileID: 1839991858}
   enemies:
-  - {fileID: 919132149155446097, guid: 3a3e7d3ce4660ef4fb4f8b896cc40ae0, type: 3}
-  - {fileID: 919132149155446097, guid: 416a53fbdcc3e724cbf0c5f7f4b215b5, type: 3}
-  - {fileID: 919132149155446097, guid: 4bdeb57382cfd8b44ba2ae131610b847, type: 3}
-  - {fileID: 919132149155446097, guid: 5f4fc06cae512394b9b79b075baddec3, type: 3}
-  - {fileID: 919132149155446097, guid: 9c2f43d5c34cf8041a833c4cd4397002, type: 3}
-  - {fileID: 919132149155446097, guid: 794a545a536aff340abfee4c4cf30e23, type: 3}
-  - {fileID: 919132149155446097, guid: 8c316c1b4d3f0ab45b32f9fbe5f7560f, type: 3}
-  - {fileID: 919132149155446097, guid: 5e7ed4dddb41ba546a20bed3ba2897e4, type: 3}
-  - {fileID: 919132149155446097, guid: 13077b4bb1d0ba149b1503269e6e48c7, type: 3}
+  - {fileID: 6647203529419279565, guid: d81be7e58e0b3e44f803ec3d02622f81, type: 3}
+  - {fileID: 3697323181481575959, guid: 1f08a2d8b8739af4d90a4706a6028260, type: 3}
+  - {fileID: 4032322367551134012, guid: c64ff3cc82d026c498e8f7e53fee8be1, type: 3}
+  - {fileID: 4865261837074261146, guid: f1c896f849a137449ad811b94944b683, type: 3}
+  - {fileID: 6074035828510213567, guid: 07eae5f69e4833440883fdce7d3a5417, type: 3}
+  - {fileID: 6278942763719526586, guid: dfba541355fd940428178d08ac3f17bd, type: 3}
+  - {fileID: 1028247817795426834, guid: 4f15f29beacaff74195093626502b40f, type: 3}
+  - {fileID: 6651914057266325164, guid: 34836afa82f93ee459ac223c2c44555a, type: 3}
+  - {fileID: 2882706248530747812, guid: 7e0094d672d3cf940b11d8a10a495c6c, type: 3}
+  roundNumber: 0
   gameOver: 0
-  inRound: 0
-  spawnRate: 2
   spawnAmount: 1
+  enemyCount: 0
 --- !u!4 &1726007999
 Transform:
   m_ObjectHideFlags: 0
