@@ -22,12 +22,14 @@ public class SpawnManager : MonoBehaviour
 
     public int i;
 
+    public bool inRound;
+
 
     // Start is called before the first frame update
     void Start()
     {
         roundNumber = 1;
-        StartSpawning();
+        StartWave();
 
     }
 
@@ -36,7 +38,7 @@ public class SpawnManager : MonoBehaviour
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if(player == null)
+        if (player == null)
         {
             gameOver = true;
         }
@@ -44,35 +46,45 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator Spawn()
     {
-
+        inRound = true;
         for (i = 0; i < 5 + roundNumber; i++)
         {
             SpawnSingleEnemy();
             yield return new WaitForSeconds(3f);
-        }
+        }        
+    }
 
-        if (enemyCount == 0)
+    IEnumerator WaveStarter()
+    {
+        while (gameOver == false)
         {
-            yield return new WaitForSeconds(20f);
-            roundNumber++;
-            i = 0;
+            //enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+            if (inRound == false)
+            {
+                StartCoroutine(Spawn());
+            }
+
+            if (enemyCount == 0 && inRound == true)
+            {
+                roundNumber++;
+                i = 0;
+                inRound = false;
+
+                yield return new WaitForSeconds(15);
+            }
         }
-
+        
     }
 
-    /*IEnumerator WaveStarter()
+    public void StartWave()
     {
-
-    }*/
-
-    public void StartSpawning()
-    {
-        StartCoroutine(Spawn());
+        StartCoroutine(WaveStarter());
     }
 
-    public void StopSpawning()
+    public void StopWave()
     {
-        StopCoroutine(Spawn());
+        StopCoroutine(WaveStarter());
     }
 
     void SpawnSingleEnemy()
