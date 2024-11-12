@@ -46,12 +46,15 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        inRound = true;
+        Debug.Log("In Spawn() lmao");
+
+        //inRound = true;
         for (i = 0; i < 5 + roundNumber; i++)
         {
             SpawnSingleEnemy();
             yield return new WaitForSeconds(3f);
-        }        
+        }
+        inRound = true;
     }
 
     IEnumerator WaveStarter()
@@ -70,6 +73,7 @@ public class SpawnManager : MonoBehaviour
                 roundNumber++;
                 i = 0;
                 inRound = false;
+                Debug.Log("In that if statement bruh");
 
                 yield return new WaitForSeconds(15);
             }
