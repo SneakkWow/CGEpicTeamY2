@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5196221763468143587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5196221763468143585}
+  - component: {fileID: 5196221763468143518}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5196221763468143585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5196221763468143587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5196221763468143518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5196221763468143587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a747b43c21ce1b64080270a7ea63d669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 6647203529419279565, guid: d81be7e58e0b3e44f803ec3d02622f81, type: 3}
+  - {fileID: 3697323181481575959, guid: 1f08a2d8b8739af4d90a4706a6028260, type: 3}
+  - {fileID: 4032322367551134012, guid: c64ff3cc82d026c498e8f7e53fee8be1, type: 3}
+  - {fileID: 4865261837074261146, guid: f1c896f849a137449ad811b94944b683, type: 3}
+  - {fileID: 6074035828510213567, guid: 07eae5f69e4833440883fdce7d3a5417, type: 3}
+  - {fileID: 6278942763719526586, guid: dfba541355fd940428178d08ac3f17bd, type: 3}
+  - {fileID: 1028247817795426834, guid: 4f15f29beacaff74195093626502b40f, type: 3}
+  - {fileID: 6651914057266325164, guid: 34836afa82f93ee459ac223c2c44555a, type: 3}
+  - {fileID: 2882706248530747812, guid: 7e0094d672d3cf940b11d8a10a495c6c, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnAmount: 5
+  enemyCount: 0
+  waveNumber: 1
+  gameOver: 0
+  inRound: 0
