@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SpawnManagerV2 : MonoBehaviour
 {
+    // variables for spawning enemies in general
     public GameObject[] enemies;
     public GameObject[] spawnPoints;
 
@@ -19,6 +20,9 @@ public class SpawnManagerV2 : MonoBehaviour
 
     public bool inRound = false;
 
+    //variables based on whether enemies are attacking
+    public bool startedAttacking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +34,7 @@ public class SpawnManagerV2 : MonoBehaviour
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if(enemyCount == 0 && inRound == false)
+        if(gameOver == false && enemyCount == 0 && inRound == false)
         {
             inRound = true;
             waveNumber++;
