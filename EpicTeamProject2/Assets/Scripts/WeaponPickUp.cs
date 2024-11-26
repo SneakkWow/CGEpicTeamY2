@@ -38,10 +38,20 @@ public class WeaponPickUp : MonoBehaviour
         {
             PickUp();
         } 
+
+       //if (Input.GetKeyDown(KeyCode.Q))
+       // {
+        //    Drop();
+        //}
     }
 
     void PickUp()
     {
         Destroy(gameObject);
     }
+
+   // void Drop()
+    //{
+
+    //}
 }
