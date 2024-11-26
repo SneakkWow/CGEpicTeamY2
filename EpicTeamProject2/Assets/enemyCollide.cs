@@ -5,7 +5,21 @@ using UnityEngine;
 public class enemyCollide : MonoBehaviour
 {
 
+    public AudioClip collisionSound;  // Reference to the audio clip
+    private AudioSource audioSource;
     private float punchForce = 10f;
+
+    void Start()
+    {
+        // Get the AudioSource component attached to this GameObject
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            // Add the AudioSource component if not present
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +28,7 @@ public class enemyCollide : MonoBehaviour
         {
             // Do something, like damaging the enemy
             Debug.Log("Hit enemy!");
+            audioSource.PlayOneShot(collisionSound);
 
             // Apply a force to the enemy's Rigidbody
             Rigidbody enemyRigidbody = other.GetComponent<Rigidbody>();
