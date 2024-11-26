@@ -54,6 +54,8 @@ namespace StarterAssets
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
+		private Animator _animator;
+
 		// player
 		private float _speed;
 		private float _rotationVelocity;
@@ -74,6 +76,8 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		private char keyPressed;
+
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -93,6 +97,7 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+			_animator = GetComponent<Animator>();
 		}
 
 		private void Start()
@@ -115,6 +120,32 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Attack();
+
+			if (Input.GetKey(KeyCode.W))
+			{
+				keyPressed = 'w';
+				//_animator.SetBool("idle", false);
+
+				//Debug.Log("w key is pressed");
+			}
+			else if (Input.GetKey(KeyCode.S))
+			{
+				//Debug.Log("s key is pressed");
+				keyPressed = 's';
+				//_animator.SetBool("idle", false);
+			}
+		}
+
+		private void Attack()
+		{
+			// Check for Mouse 1 click (left mouse button)
+			if (Input.GetMouseButtonDown(0)) // 0 is for left mouse button
+			{
+				// Trigger the punch animation in the Animator
+				_animator.SetTrigger("Punch"); // Assuming you have a trigger parameter named "Punch"
+			}
+			_animator.SetBool("idle", true);
 		}
 
 		private void LateUpdate()
@@ -196,6 +227,18 @@ namespace StarterAssets
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+			//Debug.Log(_speed);
+
+			if (_speed == 0f) {
+				_animator.SetFloat("Speed", 0f);
+			} else if (keyPressed == 'w') {
+				_animator.SetFloat("Speed", 1f);
+				_animator.SetBool("idle", false);
+			} else if (keyPressed == 's') {
+				_animator.SetFloat("Speed", -1f);
+				_animator.SetBool("idle", false);
+			}
 		}
 
 		private void JumpAndGravity()
