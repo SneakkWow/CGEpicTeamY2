@@ -24,7 +24,7 @@ public class WeaponPickUp : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("PLayer"))
+        if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
         }
@@ -34,7 +34,7 @@ public class WeaponPickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+       if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
         {
             PickUp();
         } 
@@ -47,6 +47,11 @@ public class WeaponPickUp : MonoBehaviour
 
     void PickUp()
     {
+        if (PlayerInventory.Instance != null) 
+        {
+            PlayerInventory.Instance.EquipWeapon(weaponPrefab);
+        }
+
         Destroy(gameObject);
     }
 

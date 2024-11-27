@@ -21,7 +21,12 @@ public class FishWeapon : MonoBehaviour
         if (target.TryGetComponent(out EnemyHealth enemy))
          {
             enemy.TakeDamage(damage);
+            Debug.Log("Attacked enemy with fish");
          }
+        else
+        {
+            Debug.LogWarning("Attack Faied");
+        }
         // Play flopping sound
         //audioSource.PlayOneShot(floppingSound);
     }
