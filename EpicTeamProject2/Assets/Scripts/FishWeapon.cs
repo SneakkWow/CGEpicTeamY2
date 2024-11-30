@@ -5,27 +5,38 @@ using UnityEngine;
 public class FishWeapon : MonoBehaviour
 {
     public int damage = 10;
-    //public AudioClip floppingSound;
-    //private AudioSource audioSource;
+    public AudioClip floppingSound;
+    private AudioSource audioSource;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    public void Attack(GameObject target)
+    private void OnTriggerEnter(Collider other)
     {
+       
         // Deal damage
-        if (target.TryGetComponent(out EnemyHealth enemy))
+        if (other.CompareTag("Enemy"))
          {
-            enemy.TakeDamage(damage);
-            Debug.Log("Attacked enemy with fish");
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+                audioSource.PlayOneShot(floppingSound);
+                Debug.Log("Attacked enemy with fish");
+            }
+            else
+            {
+                Debug.LogWarning("EnemyHealth component not found on Enemy");
+           }
          }
         else
         {
-            Debug.LogWarning("Attack Faied");
+            Debug.LogWarning("Attack Failed");
         }
         // Play flopping sound
         //audioSource.PlayOneShot(floppingSound);
