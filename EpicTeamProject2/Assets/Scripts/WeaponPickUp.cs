@@ -8,6 +8,8 @@ public class WeaponPickUp : MonoBehaviour
     public GameObject weaponPrefab;
 
     private bool isPlayerNearby = false;
+
+    //private enemyCollide enemyCollide;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +39,9 @@ public class WeaponPickUp : MonoBehaviour
        if (isPlayerNearby && Input.GetKeyDown(KeyCode.F))
         {
             PickUp();
-        } 
+        }
+
+       
 
        //if (Input.GetKeyDown(KeyCode.Q))
        // {
@@ -47,6 +51,7 @@ public class WeaponPickUp : MonoBehaviour
 
     void PickUp()
     {
+        
         if (PlayerInventory.Instance != null) 
         {
             PlayerInventory.Instance.EquipWeapon(weaponPrefab);

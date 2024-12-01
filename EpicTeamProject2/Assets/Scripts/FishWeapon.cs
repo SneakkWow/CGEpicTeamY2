@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class FishWeapon : MonoBehaviour
 {
-    public int damage = 10;
+    public int damage = 25;
+
+    public AudioClip deathSound;
     public AudioClip floppingSound;
     private AudioSource audioSource;
-    
+
+    private EnemyHealth enemyHealth;
+    private Collider fishCollider;
+    private float fishAttack = 0.5f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        fishCollider = GetComponent<BoxCollider>();
+
+        //fishCollider.enabled = false;
+    }
+
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            StartCoroutine(AttackCoroutine());
+        }
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        fishCollider.enabled = true;
+
+        yield return new WaitForSeconds(fishAttack);
+
+        if (fishCollider != null)
+        {
+            fishCollider.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -22,22 +52,24 @@ public class FishWeapon : MonoBehaviour
         // Deal damage
         if (other.CompareTag("Enemy"))
          {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            if (enemy != null)
+            enemyHealth = other.GetComponent<EnemyHealth>();
+
+            Debug.Log("Attacked enemy with fish");
+
+            if (enemyHealth.GetHealth() > 0)
             {
-                enemy.TakeDamage(damage);
                 audioSource.PlayOneShot(floppingSound);
-                Debug.Log("Attacked enemy with fish");
             }
-            else
+
+            enemyHealth.TakeDamage(damage);
+
+            if (enemyHealth.GetHealth() <= 0)
             {
-                Debug.LogWarning("EnemyHealth component not found on Enemy");
-           }
+                audioSource.PlayOneShot(deathSound);
+            }
+           
          }
-        else
-        {
-            Debug.LogWarning("Attack Failed");
-        }
+       
         // Play flopping sound
         //audioSource.PlayOneShot(floppingSound);
     }
