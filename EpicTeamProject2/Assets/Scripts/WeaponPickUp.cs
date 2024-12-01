@@ -5,7 +5,8 @@ using UnityEngine;
 public class WeaponPickUp : MonoBehaviour
 {
     public string weaponName;
-    public GameObject weaponPrefab;
+    public GameObject weaponPrefab1;
+    public GameObject weaponPrefab2;
 
     private bool isPlayerNearby = false;
 
@@ -51,13 +52,10 @@ public class WeaponPickUp : MonoBehaviour
 
     void PickUp()
     {
-        
-        if (PlayerInventory.Instance != null) 
-        {
-            PlayerInventory.Instance.EquipWeapon(weaponPrefab);
-        }
 
-        Destroy(gameObject);
+        weaponPrefab1.SetActive(true);
+
+        weaponPrefab2.SetActive(false);
     }
 
    // void Drop()
