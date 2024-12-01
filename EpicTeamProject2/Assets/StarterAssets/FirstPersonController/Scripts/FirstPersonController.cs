@@ -79,6 +79,7 @@ namespace StarterAssets
 		private char keyPressed;
 
 		public float punchForce = 10f;
+		//private enemyCollide eC;
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -115,6 +116,8 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			//eC = GetComponent<enemyCollide>();
 		}
 
 		private void Update()
@@ -144,6 +147,7 @@ namespace StarterAssets
 			// Check for Mouse 1 click (left mouse button)
 			if (Input.GetMouseButtonDown(0)) // 0 is for left mouse button
 			{
+				//eC.StartAttack();
 				// Trigger the punch animation in the Animator
 				_animator.SetTrigger("Punch"); // Assuming you have a trigger parameter named "Punch"
 			}
