@@ -89,7 +89,7 @@ public class FishWeapon : MonoBehaviour
             {
                 // Enable ragdoll
                 ERC.SetRagdollState(true);
-                //audioSource.PlayOneShot(collisionSound); // kill sound effect
+                audioSource.PlayOneShot(collisionSound); // kill sound effect
             }
 
             // Apply a force to the enemy's Rigidbody
