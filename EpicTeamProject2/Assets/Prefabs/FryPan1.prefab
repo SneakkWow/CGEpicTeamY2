@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4198512369614923881}
   - component: {fileID: 3280178952061695216}
   - component: {fileID: 3280178952061695219}
-  - component: {fileID: 3280178952061695217}
   m_Layer: 0
   m_Name: FryPan1
   m_TagString: Untagged
@@ -28,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2397287953846274492}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 41.77, y: 0.16, z: 14.23}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &2134965195102739619
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -92,11 +91,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2397287953846274492}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6992214, y: 1.285453, z: 0.16685225}
-  m_Center: {x: -0.00000011920929, y: -0.027483072, z: 0.021579036}
+  m_Size: {x: 0.6992214, y: 1.6620526, z: 0.35013336}
+  m_Center: {x: -0.00000011920929, y: -0.08638561, z: 0.11322038}
 --- !u!114 &3280178952061695219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,18 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ff6934db3bcf344a0aef25917cdb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
---- !u!114 &3280178952061695217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2397287953846274492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2961c3348f2b88749a7aec6bfdf2a162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponName: Pan
-  weaponPrefab: {fileID: 2397287953846274492}
+  collisionSound: {fileID: 8300000, guid: e33f4d4badb244c4b821abf144279581, type: 3}
+  bellSound: {fileID: 8300000, guid: c27e94a9b62b53b4eb8211f6e6a9e57f, type: 3}

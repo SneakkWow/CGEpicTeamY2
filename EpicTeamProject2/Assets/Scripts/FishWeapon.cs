@@ -4,74 +4,104 @@ using UnityEngine;
 
 public class FishWeapon : MonoBehaviour
 {
-    public int damage = 25;
-
-    public AudioClip deathSound;
-    public AudioClip floppingSound;
+    public AudioClip collisionSound;  // Reference to the audio clip
+    public AudioClip flopSound;
     private AudioSource audioSource;
+    private float punchForce = 10f;
+    private Collider attackCollider;  // Reference to the sphere collider used for the attack
+    private float attackDuration = 0.5f;
 
     private EnemyHealth enemyHealth;
-    private Collider fishCollider;
-    private float fishAttack = 0.5f;
 
+    //private enemyCollide EC;
 
-    // Start is called before the first frame update
+    //private EnemyRagdollControl ERC;
+
     void Start()
     {
+        // Get the AudioSource component attached to this GameObject
         audioSource = GetComponent<AudioSource>();
 
-        fishCollider = GetComponent<BoxCollider>();
+        //EC = GetComponent<enemyCollide>();
 
-        //fishCollider.enabled = false;
+        if (audioSource == null)
+        {
+            // Add the AudioSource component if not present
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Get the Collider component attached to this GameObject
+        attackCollider = GetComponent<BoxCollider>();
+        attackCollider.enabled = false;
+        if (attackCollider == null)
+        {
+            Debug.LogWarning("No collider found on the attack GameObject!");
+        }
     }
 
+    // This function will enable the attack collider when the attack starts
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0)) // 0 is for left mouse button
         {
-            StartCoroutine(AttackCoroutine());
+            StartCoroutine(AttackCoroutine());  // Start the attack using the coroutine
         }
+
     }
 
+    // Coroutine that handles the attack timing (enabling and disabling the collider)
     private IEnumerator AttackCoroutine()
     {
-        fishCollider.enabled = true;
+        // Enable the attack collider when the attack starts
+        attackCollider.enabled = true;
 
-        yield return new WaitForSeconds(fishAttack);
+        // Wait for the specified duration (e.g., the length of the attack animation or time)
+        yield return new WaitForSeconds(attackDuration);
 
-        if (fishCollider != null)
+        // Disable the attack collider after the attack duration
+        if (attackCollider != null)
         {
-            fishCollider.enabled = false;
+            attackCollider.enabled = false;
         }
     }
 
-    // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-       
-        // Deal damage
+        // When the hand collider enters another collider
         if (other.CompareTag("Enemy"))
-         {
+        {
+            EnemyRagdollControl ERC = other.GetComponent<EnemyRagdollControl>();
+
             enemyHealth = other.GetComponent<EnemyHealth>();
 
-            Debug.Log("Attacked enemy with fish");
+            // Do something, like damaging the enemy
+            Debug.Log("Hit enemy!");
 
             if (enemyHealth.GetHealth() > 0)
             {
-                audioSource.PlayOneShot(floppingSound);
+                audioSource.PlayOneShot(flopSound); // hit sound effect
             }
 
-            enemyHealth.TakeDamage(damage);
+
+            enemyHealth.TakeDamage(65); // change damage here
 
             if (enemyHealth.GetHealth() <= 0)
             {
-                audioSource.PlayOneShot(deathSound);
+                // Enable ragdoll
+                ERC.SetRagdollState(true);
+                //audioSource.PlayOneShot(collisionSound); // kill sound effect
             }
-           
-         }
-       
-        // Play flopping sound
-        //audioSource.PlayOneShot(floppingSound);
-    }
 
+            // Apply a force to the enemy's Rigidbody
+            Rigidbody enemyRigidbody = other.GetComponent<Rigidbody>();
+            if (enemyRigidbody != null)
+            {
+                // Calculate the direction of the punch (you can adjust this based on the punch animation)
+                Vector3 direction = (other.transform.position - transform.position).normalized;
+
+                // Apply the punch force to the enemy
+                enemyRigidbody.AddForce(direction * punchForce, ForceMode.Impulse);
+            }
+        }
+    }
 }
