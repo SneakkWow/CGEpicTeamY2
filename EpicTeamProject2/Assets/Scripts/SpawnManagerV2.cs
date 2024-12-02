@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SpawnManagerV2 : MonoBehaviour
 {
@@ -21,15 +22,20 @@ public class SpawnManagerV2 : MonoBehaviour
 
     public bool inRound = false;
 
+    private bool canRestart;
+
     //variables based on whether enemies are attacking
     public bool startedAttacking = false;
 
+    public Text winnerText;
     public Text countdownText;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnWave(1));
+        canRestart = false;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -42,6 +48,11 @@ public class SpawnManagerV2 : MonoBehaviour
             inRound = true;
             waveNumber++;
             StartCoroutine(SpawnWave(waveNumber));
+        }
+
+        if (canRestart == true && Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Kaiser");
         }
     }
 
@@ -56,6 +67,13 @@ public class SpawnManagerV2 : MonoBehaviour
                 countdownText.text = "Next Round In: " + i.ToString();  // Update countdown text
                 yield return new WaitForSeconds(1);  // Wait for 1 second
             }
+        }
+
+        if (waveNum > 10)
+        {
+            Time.timeScale = 0f;
+            winnerText.text = "Congrats on getting past wave ten! Press R to go again";
+            canRestart = true;
         }
 
         // Start spawning enemies after countdown
