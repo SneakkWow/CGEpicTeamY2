@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 
 public class EnemyHealth : MonoBehaviour
 {
     public float health = 100f;  // Starting health of the enemy
     private EnemyRagdollControl ragdollControl;  // Reference to the EnemyRagdollControl script
     private float damageTaken;  // Amount of damage to be subtracted from health
+    public int goldReward = 25;
+    private bool overFlow = true;
 
     void Start()
     {
@@ -17,10 +20,11 @@ public class EnemyHealth : MonoBehaviour
     // Method to apply damage to the enemy
     public void TakeDamage(float damage)
     {
+        
         health -= damage;  // Subtract the damage from the health
 
         // Check if health drops below zero
-        if (health <= 0)
+        if (health <= 0 && overFlow == true)
         {
             // Trigger the ragdoll effect when health goes below zero
             if (ragdollControl != null)
@@ -28,8 +32,15 @@ public class EnemyHealth : MonoBehaviour
                 ragdollControl.SetRagdollState(true);  // Activate ragdoll
             }
 
+            if (GoldManager.Instance != null)
+            {
+                GoldManager.Instance.AddGold(goldReward);
+            }
+
             // Optionally, you can play death animation, trigger event, etc.
             Debug.Log("Enemy died!");
+
+            overFlow = false;
 
             // Start the coroutine to make the enemy lie down for 5 seconds before disappearing
             StartCoroutine(HandleEnemyDeath());

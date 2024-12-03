@@ -1,42 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GoldManager : MonoBehaviour
 {
-    public int currentGold = 0;  // Player's gold
-    public Text goldText;        // UI Text element to display the gold
+    public static GoldManager Instance; // Singleton instance
+
+    public int gold = 0; // Initial gold
+    public Text goldText; // UI Text to display gold
+
+    private void Awake()
+    {
+        // Ensure only one instance exists
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Keep this object between scenes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        // Initialize UI
         UpdateGoldUI();
     }
 
-    // Method to increase gold (called when enemy dies)
+    // Method to increase gold
     public void AddGold(int amount)
     {
-        currentGold += amount;
-        UpdateGoldUI();  // Update the gold display
+        gold += amount;
+        UpdateGoldUI();
     }
 
-    // Method to deduct gold (called by the InteractionSystem)
-    public bool SpendGold(int amount)
-    {
-        if (currentGold >= amount)
-        {
-            currentGold -= amount;
-            UpdateGoldUI();  // Update the gold display
-            return true;
-        }
-        return false;  // Not enough gold
-    }
-
-    // Method to update the UI text with the current gold
+    // Update the gold UI
     private void UpdateGoldUI()
     {
         if (goldText != null)
         {
-            goldText.text = "Gold: " + currentGold.ToString();
+            goldText.text = "Gold: " + gold;
         }
     }
 }

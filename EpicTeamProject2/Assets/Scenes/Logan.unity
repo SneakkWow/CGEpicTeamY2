@@ -1225,6 +1225,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 9005220657870229704}
+    - target: {fileID: 4484906410512706465, guid: d1b844a1806dd2842844389eb06749d0, type: 3}
+      propertyPath: MoveSpeed
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484906410512706465, guid: d1b844a1806dd2842844389eb06749d0, type: 3}
+      propertyPath: SprintSpeed
+      value: 650
+      objectReference: {fileID: 0}
     - target: {fileID: 4484906410512706526, guid: d1b844a1806dd2842844389eb06749d0, type: 3}
       propertyPath: m_Convex
       value: 0

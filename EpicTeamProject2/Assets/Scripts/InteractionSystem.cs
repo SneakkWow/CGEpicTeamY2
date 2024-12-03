@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class InteractionSystem : MonoBehaviour
 {
@@ -54,3 +54,4 @@ public class InteractionSystem : MonoBehaviour
         }
     }
 }
+*/
