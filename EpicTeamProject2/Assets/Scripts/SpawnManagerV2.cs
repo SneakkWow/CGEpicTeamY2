@@ -24,6 +24,8 @@ public class SpawnManagerV2 : MonoBehaviour
 
     private bool canRestart;
 
+    public Text roundText;
+
     //variables based on whether enemies are attacking
     public bool startedAttacking = false;
 
@@ -42,6 +44,8 @@ public class SpawnManagerV2 : MonoBehaviour
     void Update()
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        roundText.text = "Round: " + waveNumber + "\nEnemies left: " + enemyCount;
 
         if(gameOver == false && enemyCount == 0 && inRound == false)
         {

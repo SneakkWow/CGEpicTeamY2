@@ -26,4 +26,5 @@ public class FollowPlayer : MonoBehaviour
             navMeshAgent.SetDestination(player.position);
         }
     }
+
 }
