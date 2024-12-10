@@ -15,6 +15,7 @@ public class PlayerHealthManager : MonoBehaviour
     //public Text healthText;  // Text to display health
     public Image flashImage;  // Image for red flash effect
     public GameObject deadText;
+    public GameObject restartText;
 
     void Start()
     {
@@ -48,6 +49,7 @@ public class PlayerHealthManager : MonoBehaviour
         {
             Time.timeScale = 0;
             deadText.SetActive(true);
+            restartText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.R)) {
                 RestartScene();
             }
