@@ -9,6 +9,9 @@ public class WeaponManager : MonoBehaviour
 
     private int weaponIndex = 0;
 
+    public GameObject weaponPanel;
+    private bool weaponPanelActive = false;
+
     // Assuming you have a method for initializing the UI text reference
     void Start()
     {
@@ -22,16 +25,32 @@ public class WeaponManager : MonoBehaviour
     void Update()
     {
         // Check if the player presses 1 or 2 to switch weapons
-        if (Input.GetKeyDown(KeyCode.Alpha1) && weaponIndex > 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            weaponIndex--;
+            weaponIndex = 0;
             ShowWeaponText(weaponIndex);
+            EquipWeapon(weaponIndex);
             // EquipWeapon(weaponIndex);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) &&  weaponIndex < weapons.Length)
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            weaponIndex++;
+            weaponIndex = 1;
             ShowWeaponText(weaponIndex);
+            EquipWeapon(weaponIndex);
+            // EquipWeapon(weaponIndex);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            weaponIndex = 2;
+            ShowWeaponText(weaponIndex);
+            EquipWeapon(weaponIndex);
+            // EquipWeapon(weaponIndex);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            weaponIndex = 3;
+            ShowWeaponText(weaponIndex);
+            EquipWeapon(weaponIndex);
             // EquipWeapon(weaponIndex);
         }
 
@@ -41,9 +60,17 @@ public class WeaponManager : MonoBehaviour
             Invoke("HideWeaponText", 1f);  // Hide after 1 second
         }*/
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Q) && weaponPanelActive == false)
         {
-           EquipWeapon(weaponIndex);
+            weaponPanel.SetActive(true);
+            Time.timeScale = 0f;
+            weaponPanelActive = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && weaponPanelActive == true)
+        {
+            weaponPanel.SetActive(false);
+            Time.timeScale = 1f;
+            weaponPanelActive = false;
         }
     }
 

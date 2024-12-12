@@ -16,6 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     public Image flashImage;  // Image for red flash effect
     public GameObject deadText;
     public GameObject restartText;
+    public Text healthText;
 
     void Start()
     {
@@ -54,6 +55,8 @@ public class PlayerHealthManager : MonoBehaviour
                 RestartScene();
             }
         }
+
+        healthText.text = "Health: " + currentHealth;
     }
 
     // Call this method when the player collides with an enemy
